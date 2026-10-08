@@ -10,8 +10,8 @@ export const project = {
   tagline: "The Factory of Super Intelligence",
   contractAddress: "",
   links: {
-    x: "",
-    telegram: "",
+    x: "https://x.com/terafab_eth",
+    telegram: "https://t.me/terfab_eth",
     etherscan: "",
     uniswap: "",
     dextools: "",
