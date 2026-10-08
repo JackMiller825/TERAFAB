@@ -1,7 +1,4 @@
-import { assets } from "../config/assets"
-
 const stations = ["SILICON", "CHIPS", "COMPUTE", "MODELS", "AGENTS", "SUPER INTELLIGENCE"]
-const chips = [0, 1, 2, 3, 4, 5]
 
 export function Conveyor() {
   const loop = [...stations, ...stations]
@@ -15,13 +12,6 @@ export function Conveyor() {
           <p>Raw compute goes in. Super Intelligence comes out.</p>
         </div>
         <div className="line-scene">
-          <div className="arm arm-left">
-            <img src={assets.robotArm} alt="Robotic assembly arm" width={360} height={338} />
-          </div>
-          <div className="arm arm-right" aria-hidden="true">
-            <img src={assets.robotArm} alt="" width={360} height={338} />
-          </div>
-          <img className="mobile-chip" src={assets.siChip} alt="" width={120} height={120} />
           <div className="rail">
             <div className="rail-track">
               {loop.map((label, index) => (
@@ -29,20 +19,6 @@ export function Conveyor() {
                   <span>0{(index % stations.length) + 1}</span>
                   <strong>{label}</strong>
                 </article>
-              ))}
-            </div>
-          </div>
-          <div className="chip-lane" aria-hidden="true">
-            <div className="chip-track">
-              {[...chips, ...chips].map((chip, index) => (
-                <img
-                  key={`${chip}-${index}`}
-                  className="chip-token"
-                  src={assets.siChip}
-                  alt=""
-                  width={92}
-                  height={92}
-                />
               ))}
             </div>
           </div>
