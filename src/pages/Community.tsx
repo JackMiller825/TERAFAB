@@ -55,13 +55,6 @@ export function Community() {
               caption="The X launch frame. The line is lit. The links stay dark until they are real."
             />
           </div>
-          <CommunityCard
-            className="community-feature"
-            src={assets.xMeme}
-            alt="TERAFAB meme artwork of a robot in sunglasses with the line about buying before the factory went global"
-            title="The template"
-            caption="A timeline joke. The artwork talks. The site does not promise a chart."
-          />
         </div>
       </section>
       <section className="section" aria-labelledby="stickers-title" style={{ paddingTop: 0 }}>

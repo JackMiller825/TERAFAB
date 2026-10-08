@@ -4,18 +4,46 @@ import { liveContract, project, tokenConfig } from "../config/project"
 
 const contract = liveContract(project.contractAddress)
 
+function fallbackCopy(text: string) {
+  const area = document.createElement("textarea")
+  area.value = text
+  area.setAttribute("readonly", "")
+  area.style.position = "fixed"
+  area.style.top = "0"
+  area.style.left = "0"
+  area.style.opacity = "0"
+  document.body.appendChild(area)
+  area.focus()
+  area.select()
+  const ok = document.execCommand("copy")
+  area.remove()
+  if (!ok) throw new Error("copy failed")
+}
+
 export function TokenInfo() {
   const [copied, setCopied] = useState(false)
+  const address = contract ?? "Coming Soon"
 
-  async function onCopy() {
-    if (!contract) return
+  function onCopy() {
+    let synced = false
     try {
-      await navigator.clipboard.writeText(contract)
+      fallbackCopy(address)
+      synced = true
+    } catch {
+      synced = false
+    }
+
+    const finish = () => {
       setCopied(true)
       window.setTimeout(() => setCopied(false), 1600)
-    } catch {
-      setCopied(false)
     }
+
+    if (synced) finish()
+
+    if (!navigator.clipboard?.writeText) return
+    void navigator.clipboard.writeText(address).then(finish).catch(() => {
+      if (!synced) setCopied(false)
+    })
   }
 
   return (
@@ -23,8 +51,8 @@ export function TokenInfo() {
       <article className="panel token-card">
         <span>CONTRACT</span>
         <div className="token-contract">
-          <strong>{contract ?? "Coming Soon"}</strong>
-          <button type="button" className="btn btn-primary" onClick={onCopy} disabled={!contract}>
+          <strong>{address}</strong>
+          <button type="button" className="btn btn-primary" onClick={onCopy} aria-label={copied ? "Copied" : "Copy contract address"}>
             {copied ? <Check size={16} aria-hidden="true" /> : <Copy size={16} aria-hidden="true" />}
             {copied ? "COPIED" : "COPY"}
           </button>

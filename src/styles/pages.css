@@ -522,7 +522,7 @@
   position: relative;
   border-top: 1px solid rgba(0, 170, 255, 0.2);
   background: #040910;
-  padding: 64px 0 28px;
+  padding: 28px 0;
 }
 
 .footer-cta h2 {
@@ -539,11 +539,10 @@
 }
 
 .footer-grid {
-  margin-top: 42px;
+  margin-top: 0;
   display: grid;
   gap: 22px;
-  padding-top: 28px;
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  align-items: center;
 }
 
 .footer-brand img {
