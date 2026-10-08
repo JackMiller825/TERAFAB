@@ -1,7 +1,6 @@
 import { assets } from "../config/assets"
 import { CommunityCard } from "../components/CommunityCard"
 import { SocialButtons } from "../components/SocialButtons"
-import { StickerGallery } from "../components/StickerGallery"
 import { usePageMeta } from "../hooks/usePageMeta"
 
 export function Community() {
@@ -55,15 +54,6 @@ export function Community() {
               caption="The X launch frame. The line is lit. The links stay dark until they are real."
             />
           </div>
-        </div>
-      </section>
-      <section className="section" aria-labelledby="stickers-title" style={{ paddingTop: 0 }}>
-        <div className="wrap">
-          <h2 id="stickers-title">Sticker bay</h2>
-          <p className="lede" style={{ margin: "10px 0 18px" }}>
-            Floor stickers for the people actually on the line.
-          </p>
-          <StickerGallery />
         </div>
       </section>
     </article>
