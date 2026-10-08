@@ -21,12 +21,12 @@ export const project = {
 export const tokenConfig = {
   name: project.name,
   ticker: project.ticker,
-  network: "Ethereum",
   contractAddress: project.contractAddress,
-  totalSupply: "COMING SOON",
+  totalSupply: "1,000,000,000",
   buyTax: "COMING SOON",
   sellTax: "COMING SOON",
-  liquidityStatus: "COMING SOON",
+  lpStatus: "Burn",
+  ownership: "Renounced",
 } as const
 
 export const navLinks = [

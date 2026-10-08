@@ -1,6 +1,4 @@
-import { Link } from "react-router-dom"
 import { assets } from "../config/assets"
-import { footerLinks } from "../config/project"
 import { SocialButtons } from "./SocialButtons"
 
 export function Footer() {
@@ -13,21 +11,12 @@ export function Footer() {
             <br />
             IS JUST GETTING STARTED.
           </h2>
-          <SocialButtons />
         </div>
         <div className="footer-grid">
           <div className="footer-brand">
-            <img src={assets.logoMark} alt="" width={72} height={72} />
-            <strong>TERAFAB</strong>
-            <span>THE FACTORY OF SUPER INTELLIGENCE</span>
+            <img src={assets.logoMark} alt="TERAFAB" width={72} height={72} />
           </div>
-          <nav className="footer-links" aria-label="Footer">
-            {footerLinks.map((link) => (
-              <Link key={link.to} to={link.to}>
-                {link.label}
-              </Link>
-            ))}
-          </nav>
+          <SocialButtons />
         </div>
         <p className="disclaimer">
           TERAFAB is an independent community-driven crypto project. It is not affiliated with or endorsed by Elon

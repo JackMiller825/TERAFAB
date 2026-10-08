@@ -28,7 +28,6 @@ export function Roadmap() {
         <div className="wrap">
           <p className="eyebrow">FABRICATION PLAN</p>
           <h1>ROADMAP</h1>
-          <p className="lede">An industrial plan. No dates invented. No boxes checked that the factory has not earned.</p>
         </div>
       </header>
       <div className="wrap roadmap-grid">

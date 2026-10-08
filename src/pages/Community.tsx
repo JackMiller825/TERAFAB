@@ -21,16 +21,6 @@ export function Community() {
           TERAFAB is a global community built around one ridiculous idea: if the world is racing toward Super
           Intelligence, somebody has to build the factory.
         </p>
-        <div className="profile-row">
-          <img src={assets.xProfile} alt="TERAFAB profile mark for X" width={64} height={64} loading="lazy" />
-          <img
-            src={assets.telegramProfile}
-            alt="TERAFAB profile mark for Telegram"
-            width={64}
-            height={64}
-            loading="lazy"
-          />
-        </div>
         <SocialButtons />
       </div>
       <section className="section" aria-labelledby="channels-title">
@@ -64,13 +54,14 @@ export function Community() {
               title="The launch"
               caption="The X launch frame. The line is lit. The links stay dark until they are real."
             />
-            <CommunityCard
-              src={assets.xMeme}
-              alt="TERAFAB meme artwork of a robot in sunglasses with the line about buying before the factory went global"
-              title="The template"
-              caption="A timeline joke. The artwork talks. The site does not promise a chart."
-            />
           </div>
+          <CommunityCard
+            className="community-feature"
+            src={assets.xMeme}
+            alt="TERAFAB meme artwork of a robot in sunglasses with the line about buying before the factory went global"
+            title="The template"
+            caption="A timeline joke. The artwork talks. The site does not promise a chart."
+          />
         </div>
       </section>
       <section className="section" aria-labelledby="stickers-title" style={{ paddingTop: 0 }}>

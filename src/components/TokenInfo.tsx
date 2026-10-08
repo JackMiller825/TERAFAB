@@ -1,26 +1,47 @@
-import { displayStat, liveContract, project, tokenConfig } from "../config/project"
+import { useState } from "react"
+import { Check, Copy } from "lucide-react"
+import { liveContract, project, tokenConfig } from "../config/project"
 
 const contract = liveContract(project.contractAddress)
 
-const cards = [
-  { label: "NETWORK", value: tokenConfig.network },
-  {
-    label: "CONTRACT",
-    value: contract ? `${contract.slice(0, 6)}…${contract.slice(-4)}` : "Coming Soon",
-  },
-  { label: "SUPPLY", value: displayStat(tokenConfig.totalSupply) },
-  { label: "LIQUIDITY", value: displayStat(tokenConfig.liquidityStatus) },
-]
-
 export function TokenInfo() {
+  const [copied, setCopied] = useState(false)
+
+  async function onCopy() {
+    if (!contract) return
+    try {
+      await navigator.clipboard.writeText(contract)
+      setCopied(true)
+      window.setTimeout(() => setCopied(false), 1600)
+    } catch {
+      setCopied(false)
+    }
+  }
+
   return (
     <div className="token-cards">
-      {cards.map((card) => (
-        <article key={card.label} className="panel token-card">
-          <span>{card.label}</span>
-          <strong>{card.value}</strong>
-        </article>
-      ))}
+      <article className="panel token-card">
+        <span>CONTRACT</span>
+        <div className="token-contract">
+          <strong>{contract ?? "Coming Soon"}</strong>
+          <button type="button" className="btn btn-primary" onClick={onCopy} disabled={!contract}>
+            {copied ? <Check size={16} aria-hidden="true" /> : <Copy size={16} aria-hidden="true" />}
+            {copied ? "COPIED" : "COPY"}
+          </button>
+        </div>
+      </article>
+      <article className="panel token-card">
+        <span>SUPPLY</span>
+        <strong>{tokenConfig.totalSupply}</strong>
+      </article>
+      <article className="panel token-card">
+        <span>LP STATUS</span>
+        <strong>{tokenConfig.lpStatus}</strong>
+      </article>
+      <article className="panel token-card">
+        <span>OWNERSHIP</span>
+        <strong>{tokenConfig.ownership}</strong>
+      </article>
     </div>
   )
 }
