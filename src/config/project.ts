@@ -8,13 +8,14 @@ export const project = {
   name: "TeraFab",
   ticker: "$TERAFAB",
   tagline: "The Factory of Super Intelligence",
-  contractAddress: "",
+  contractAddress: "0xcf8bd369220976015f49d068bc2c1fe0384d4415",
   links: {
     x: "https://x.com/terafab_eth",
     telegram: "https://t.me/terfab_eth",
     etherscan: "",
     uniswap: "",
-    dextools: "",
+    dexscreener: "https://dexscreener.com/ethereum/0x090378eed1a86ac07e9a402950eb0ad5558b1ed9",
+    dextools: "https://www.dextools.io/app/ether/pair-explorer/0x090378eed1a86ac07e9a402950eb0ad5558b1ed9",
   },
 } as const
 

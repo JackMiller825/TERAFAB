@@ -18,7 +18,7 @@ export function Tokenomics() {
       <div className="wrap">
         <TokenInfo />
         <div className="link-row">
-          <ConfigLink href={project.links.etherscan}>ETHERSCAN</ConfigLink>
+          <ConfigLink href={project.links.dexscreener}>DEXSCREENER</ConfigLink>
           <ConfigLink href={project.links.dextools}>DEXTOOLS</ConfigLink>
         </div>
       </div>
